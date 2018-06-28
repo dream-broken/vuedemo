@@ -34,12 +34,12 @@ const routes =
 				path: '/bi',
 				component : bi
 			}]
-	}, {
+	}];
+	/*, {
 		//默认跳转路由
 		path: '*',
 		redirect : '/re/0/name'
-	}];
-	
+	}*/
 //实例化
 const router = new VueRouter({
     routes // （缩写）相当于 routes: routes
