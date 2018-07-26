@@ -26,13 +26,17 @@
 		<!--路由
     <router-view></router-view>-->
 
-		<div>内容:{{content}}</div>
-		<vue-html5-editor :content="content" :height="500" :auto-height="true" @change="updateData"></vue-html5-editor>
+		<!--<div>内容:{{content}}</div>
+		<vue-html5-editor :content="content" :height="500" :auto-height="true" @change="updateData"></vue-html5-editor>-->
+
+		<textarea id="editor" rows="10" cols="80"></textarea>
 
 	</div>
 </template>
 
 <script>
+	import CKEDITOR from "CKEDITOR";
+
 	//引入组件
 	//数据绑定
 	import binding from './view/binding.vue';
@@ -54,10 +58,10 @@
 		},
 		//放方法的地方
 		methods: {
-			updateData: function(data) {
+			/*updateData: function(data) {
 				// sync content to component
 				this.content = data
-			}
+			}*/
 		},
 		/*挂载组件  前面的组件名称不能和html标签一样*/
 		components: {
@@ -69,7 +73,16 @@
 			'v-axiostest': axiostest,
 			'v-parent01': parent01,
 			'v-parent02': parent02
-		}
+		},
+		mounted() {
+			console.log(CKEDITOR);
+			/*CKEDITOR.replace("editor", {
+				height: "300px",
+				width: "100%",
+				toolbar: "Full"
+			});
+			var editor = CKEDITOR.instances.editor2;*/
+		},
 
 	}
 </script>
